@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recette</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black px-3">
+        <a class="navbar-brand text-danger" href="#">HappyMeal</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Nos recettes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Mes Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Planning de la Semaine</a></li>
+                <li class="nav-item"><a class="nav-link text-danger" href="#">Favoris</a></li>
+            </ul>
+            <input class="form-control w-auto" type="search" placeholder="Rechercher">
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="text-center">Nom de <span class="text-danger">Recette</span></h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="assets/platexemple.jpg" class="card-img-top" alt="Image recette">
+            </div>
+            <div class="col-md-4">
+                <div class="bg-secondary p-3">
+                    <h5 class="bg-light text-dark p-1">Explication : Lorem ipsum dolor sit, amet consectetur adipisicing.</h5>
+                    <p>Étapes de recette : Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    <p>Durée : 40 minutes</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-secondary p-3">
+                    <h5>Liste Ingrédients :</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between bg-light text-dark">
+                            Ingrédient <button class="btn btn-dark btn-sm">+</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light text-dark">
+                            Ingrédient <button class="btn btn-dark btn-sm">+</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light text-dark">
+                            Ingrédient <button class="btn btn-dark btn-sm">+</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light text-dark">
+                            Ingrédient <button class="btn btn-dark btn-sm">+</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light text-dark">
+                            Ingrédient <button class="btn btn-dark btn-sm">+</button>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light text-dark">
+                            Ingrédient <button class="btn btn-dark btn-sm">+</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
