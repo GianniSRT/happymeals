@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ma Liste de Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet/index.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light fade-in">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"> <span class="highlight">Happy</span>Meal </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link text-dark" href="recettes.html">Nos recettes</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="liste_course.html">Mes Courses</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#">Planning de la Semaine</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="favoris.html">Favoris</a></li>
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="form-control" placeholder="Rechercher une recette...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-4 fade-in">
+        <h2>Ma liste de <span class="highlight">Courses</span></h2>
+        <div class="input-group my-3">
+            <input type="text" id="ingredientInput" class="form-control" placeholder="Ajouter un ingrédient">
+            <button class="btn btn-orange" onclick="ajouterIngredient()">AJOUTER</button>
+        </div>
+        <ul id="ingredientList" class="list-group"></ul>
+        <button class="btn btn-orange mt-3" onclick="exporterListe()">EXPORTER</button>
+        <button class="btn btn-secondary mt-3" onclick="supprimerListe()">SUPPRIMER</button>
+    </div>
+
+    <script>
+        let ingredients = new Set();
+        function ajouterIngredient() {
+            let input = document.getElementById("ingredientInput");
+            let ingredient = input.value.trim();
+            if (ingredient && !ingredients.has(ingredient)) {
+                ingredients.add(ingredient);
+                afficherIngredients();
+                input.value = "";
+            }
+        }
+        function afficherIngredients() {
+            let list = document.getElementById("ingredientList");
+            list.innerHTML = "";
+            ingredients.forEach(ingredient => {
+                let li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-center bg-dark text-white border-light fade-in";
+                li.innerHTML = `${ingredient} <button class='btn btn-danger btn-sm' onclick='supprimerIngredient("${ingredient}")'>X</button>`;
+                list.appendChild(li);
+            });
+        }
+        function supprimerIngredient(ingredient) {
+            ingredients.delete(ingredient);
+            afficherIngredients();
+        }
+        function exporterListe() {
+            let contenu = Array.from(ingredients).join("\n");
+            let blob = new Blob([contenu], { type: "text/plain" });
+            let a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "liste_courses.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        function supprimerListe() {
+            ingredients.clear();
+            afficherIngredients();
+        }
+    </script>
+</body>
+</html>
