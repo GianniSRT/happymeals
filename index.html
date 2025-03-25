@@ -11,7 +11,7 @@
 <body>
 
     <section>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg fade-in">
             <div class="container">
                 <a class="navbar-brand" href="index.html"> <span>Happy</span>Meal </a>
                 <div class="collapse navbar-collapse">
@@ -30,29 +30,53 @@
         </nav>
         
         <div class="container text-center mt-5">
-            <h2 class="animated-text">Découvrez une <span class="highlight-text">nouvelle recette !</span></h2>
+            <h2 class="fade-in-up">Découvrez une <span class="highlight-text">nouvelle recette !</span></h2>
             <div class="row mt-4">
                 <div class="col-md-4">
-                    <div class="recipe-card">
+                    <div class="recipe-card hidden">
                         <h4>Recette 1</h4>
+                        <img src="assets/recette2.jpg" alt="Recette 1" class="img-fluid rounded">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="recipe-card">
+                    <div class="recipe-card hidden">
                         <h4>Recette 2</h4>
+                        <img src="assets/recette2.jpg" alt="Recette 2" class="img-fluid rounded">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="recipe-card">
+                    <div class="recipe-card hidden">
                         <h4>Recette 3</h4>
+                        <img src="assets/recette2.jpg" alt="Recette 3" class="img-fluid rounded">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        // Détection du scroll pour animer les recettes au bon moment
+        document.addEventListener("DOMContentLoaded", function() {
+            let elements = document.querySelectorAll(".hidden");
+
+            function checkScroll() {
+                let triggerBottom = window.innerHeight * 0.85;
+                
+                elements.forEach(el => {
+                    let rect = el.getBoundingClientRect();
+                    if (rect.top < triggerBottom) {
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll(); // Vérifie au chargement
+        });
+    </script>
 
 </body>
 </html>
