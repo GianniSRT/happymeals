@@ -40,35 +40,7 @@
                 <!-- Sélection des Recettes -->
                 <div class="col-md-4">
                     <h5 class="bg-secondary p-2 text-center fade-in">Sélection des Recettes Favorites</h5>
-                    <ul class="list-group" id="recipe-list">
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Pâtes Bolognaises <button class="btn btn-dark btn-sm" onclick="addToPlanning('Pâtes Bolognaises')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Couscous <button class="btn btn-dark btn-sm" onclick="addToPlanning('Couscous')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Pâtes Carbonara <button class="btn btn-dark btn-sm" onclick="addToPlanning('Pâtes Carbonara')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Tajine - Poulet aux olives <button class="btn btn-dark btn-sm" onclick="addToPlanning('Tajine - Poulet aux olives')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Pizza <button class="btn btn-dark btn-sm" onclick="addToPlanning('Menu Pizza')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Tiramisu <button class="btn btn-dark btn-sm" onclick="addToPlanning('Tiramisu')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Sushis <button class="btn btn-dark btn-sm" onclick="addToPlanning('Sushis')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Tacos <button class="btn btn-dark btn-sm" onclick="addToPlanning('Sushis')">+</button>
-                        </li>
-                        <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                            Chili con carne <button class="btn btn-dark btn-sm" onclick="addToPlanning('Sushis')">+</button>
-                        </li>
-                    </ul>
+                    <div id="recettes-container"></div>
                 </div>
 
                 <!-- Planning de la Semaine -->
@@ -126,5 +98,8 @@
         </div>
     </section>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./src/js/planning.js"></script>
 </body>
 </html>
