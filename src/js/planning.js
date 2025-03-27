@@ -1,3 +1,35 @@
+$(document).ready(function() {
+    $.ajax({
+        url: 'src/data/data.json',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+            console.log(data);
+            data.recettes.forEach(function(recette) {
+                let recetteHTML = `
+                <ul class="list-group" id="recipe-list">
+                    <li class="list-group-item bg-light text-dark d-flex justify-content-between">
+                    <p>${recette.nom}<p> <button class="btn btn-dark btn-sm" onclick="addToPlanning('Pâtes Bolognaises')">+</button>
+                    </li>
+                </ul>
+                `;
+
+                $('#recettes-container').append(recetteHTML);
+            });
+        },
+        error: () => {
+            console.error('Une erreur est survenue lors de la récupération des recettes.');
+            $('#recettes-container').html('<p>Une erreur est survenue lors de la récupération des recettes.</p>');
+        }
+    });
+});
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     loadPlanning();
 });
@@ -12,6 +44,8 @@ function addToPlanning(recipe) {
         alert("Jour invalide, essayez : lundi-midi, mardi-soir...");
     }
 }
+
+
 
 function savePlanning() {
     let planning = {};

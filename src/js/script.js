@@ -13,7 +13,7 @@ $(document).ready(function() {
                 let recetteHTML = `
                 <div class="recipe-card w-25 m-2">
                     <h2>${recette.nom}</h2>
-                    <img src="assets/recette2.jpg" alt="${recette.nom}" class="img-fluid rounded">
+                    <img src="${recette.img}" alt="${recette.nom}" class="img-fluid rounded">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                 </div>
                 `;
