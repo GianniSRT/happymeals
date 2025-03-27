@@ -3,6 +3,7 @@
       {
          "nom":"Poulet rôti aux herbes",
          "categorie":"Plat principal",
+         "img": "/assets/poulet-roti-herbes.jpg",
          "temps_preparation":"1 heure",
          "ingredients":[
             {
@@ -33,6 +34,7 @@
       {
          "nom":"Salade de quinoa aux légumes grillés",
          "categorie":"Entrée",
+         "img": "/assets/salade-quinoa.jpg",
          "temps_preparation":"30 minutes",
          "ingredients":[
             {
@@ -71,6 +73,7 @@
       {
          "nom":"Tarte aux pommes",
          "categorie":"Dessert",
+         "img": "/assets/tarte-aux-pommes.jpg",
          "temps_preparation":"1 heure",
          "ingredients":[
             {
@@ -111,6 +114,7 @@
       {
          "nom":"Soupe de lentilles",
          "categorie":"Entrée",
+         "img": "/assets/soupe-lentilles.jpg",
          "temps_preparation":"1 heure",
          "ingredients":[
             {
@@ -151,6 +155,7 @@
       {
          "nom":"Pâtes Carbonara",
          "categorie":"Plat principal",
+         "img": "/assets/pates-carbonara.jpg",
          "temps_preparation":"20 minutes",
          "ingredients":[
             {
@@ -192,6 +197,7 @@
       {
          "nom":"Risotto aux champignons",
          "categorie":"Plat principal",
+         "img": "/assets/risotto-aux-champignons.jpg",
          "temps_preparation":"40 minutes",
          "ingredients":[
             {
@@ -235,12 +241,41 @@
       {
          "nom":"Salade de fruits frais",
          "categorie":"Dessert",
+         "img": "/assets/salade-fruit.jpg",
          "temps_preparation":"20 minutes",
          "ingredients":[
-            "Fruits variés (fraises, kiwis, oranges, raisins, etc.), coupés en morceaux",
-            "Jus d'orange ou de citron",
-            "Miel ou sirop d'érable (facultatif)",
-            "Feuilles de menthe fraîche pour garnir"
+            {
+               "nom":"Fraises",
+               "quantite":"200g"
+            },
+            {
+               "nom":"Kiwi",
+               "quantite":"2"
+            },
+            {
+               "nom":"Banane",
+               "quantite":"1"
+            },
+            {
+               "nom":"Orange",
+               "quantite":"1"
+            },
+            {
+               "nom":"Raisins",
+               "quantite":"100g"
+            },
+            {
+               "nom":"Jus de citron",
+               "quantite":"2 cuillères à soupe"
+            },
+            {
+               "nom":"Miel (optionnel)",
+               "quantite":"1 cuillère à soupe"
+            },
+            {
+               "nom":"Feuilles de menthe",
+               "quantite":"Quelques feuilles pour la décoration"
+            }
          ],
          "etapes":[
             "Coupez tous les fruits en morceaux de taille similaire et placez-les dans un grand bol.",
@@ -254,6 +289,7 @@
       {
          "nom":"Ratatouille provençale",
          "categorie":"Plat principal",
+         "img": "/assets/ratatouille.jpg",
          "temps_preparation":"1 heure",
          "ingredients":[
             {
@@ -295,6 +331,7 @@
       {
          "nom":"Salade César",
          "categorie":"Entrée",
+         "img": "/assets/salade-cesar.jpg",
          "temps_preparation":"20 minutes",
          "ingredients":[
             {
@@ -332,51 +369,60 @@
          ]
       },
       {
-         "nom":"Risotto aux champignons",
-         "categorie":"Plat principal",
-         "temps_preparation":"40 minutes",
+         "nom":"Cheesecake",
+         "categorie":"Dessert",
+         "img": "/assets/cheesecake.jpg",
+         "temps_preparation":"20 minutes (+ 4h de repos)",
          "ingredients":[
             {
-               "nom":"Riz",
+               "nom":"Biscuits sablés",
+               "quantite":"200g"
+            },
+            {
+               "nom":"Beurre fondu",
                "quantite":"100g"
             },
             {
-               "nom":"Champignons",
+               "nom":"Fromage frais (type Philadelphia)",
                "quantite":"500g"
             },
             {
-               "nom":"Oignons",
-               "quantite":"3"
+               "nom":"Sucre",
+               "quantite":"120g"
             },
             {
-               "nom":"Vin blanc",
-               "quantite":"50g"
+               "nom":"Crème liquide",
+               "quantite":"200ml"
             },
             {
-               "nom":"Beurre",
-               "quantite":"50g"
+               "nom":"Extrait de vanille",
+               "quantite":"1 cuillère à café"
             },
             {
-               "nom":"Huile d'olive",
-               "quantite":"10g"
+               "nom":"Gélatine",
+               "quantite":"3 feuilles"
+            },
+            {
+               "nom":"Jus de citron",
+               "quantite":"1 cuillère à soupe"
             }
          ],
          "etapes":[
-            "Nettoyez et coupez les champignons en tranches.",
-            "Dans une grande poêle, faites chauffer un peu d'huile d'olive et faites revenir l'oignon haché et l'ail émincé jusqu'à ce qu'ils soient translucides.",
-            "Ajoutez les champignons et faites-les sauter jusqu'à ce qu'ils soient dorés.",
-            "Ajoutez le riz Arborio et mélangez bien pour enrober chaque grain d'huile.",
-            "Versez le vin blanc et laissez-le s'évaporer.",
-            "Ajoutez une louche de bouillon de légumes chaud et remuez jusqu'à ce que le liquide soit absorbé.",
-            "Continuez à ajouter le bouillon louche par louche, en remuant fréquemment, jusqu'à ce que le riz soit crémeux et cuit al dente, cela prendra environ 18-20 minutes.",
-            "Incorporez le beurre et le Parmesan râpé.",
-            "Assaisonnez avec du sel et du poivre selon votre goût.",
-            "Saupoudrez de persil frais haché avant de servir."
+            "Réduisez les biscuits en miettes et mélangez-les avec le beurre fondu.",
+            "Tassez ce mélange au fond d'un moule à charnière et placez au réfrigérateur pour raffermir.",
+            "Faites ramollir la gélatine dans de l’eau froide.",
+            "Fouettez le fromage frais avec le sucre et l'extrait de vanille jusqu'à obtenir une texture lisse.",
+            "Faites chauffer légèrement le jus de citron et faites-y fondre la gélatine égouttée.",
+            "Incorporez ce mélange au fromage frais.",
+            "Montez la crème liquide en chantilly et incorporez-la délicatement à la préparation.",
+            "Versez la préparation sur la base de biscuits et lissez la surface.",
+            "Placez au réfrigérateur pendant au moins 4 heures avant de déguster."
          ]
       },
       {
          "nom":"Muffins aux myrtilles",
          "categorie":"Dessert",
+         "img": "/assets/muffin-myrtille.jpg",
          "temps_preparation":"30 minutes",
          "ingredients":[
             {
@@ -418,6 +464,7 @@
       {
          "nom":"Lasagnes végétariennes",
          "categorie":"Plat principal",
+         "img": "/assets/lasagne-vege.jpg",
          "temps_preparation":"1 heure 30 minutes",
          "ingredients":[
             {
@@ -433,7 +480,7 @@
                "quantite":"5"
             },
             {
-               "nom":"Poivon",
+               "nom":"Poivron",
                "quantite":"3"
             },
             {
@@ -460,6 +507,7 @@
       {
          "nom":"Salade niçoise",
          "categorie":"Entrée",
+         "img": "/assets/salade-niçoise.jpg",
          "temps_preparation":"20 minutes",
          "ingredients":[
             {
@@ -503,6 +551,7 @@
       {
          "nom":"Tiramisu",
          "categorie":"Dessert",
+         "img": "/assets/tiramisu.jpg",
          "temps_preparation":"30 minutes (+ temps de repos)",
          "ingredients":[
             {
