@@ -252,3 +252,13 @@ body {
     color: black;
 }
 
+/* ----------------------------------
+    Séparations des ingrédients et boutons dans la modal
+---------------------------------- */
+
+.ingredient-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Espacement entre le texte et le bouton */
+}
