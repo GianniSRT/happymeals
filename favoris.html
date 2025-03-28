@@ -33,26 +33,52 @@
         <!-- Contenu principal de la page Favoris -->
         <div class="container text-center mt-5">
             <h2 class="fade-in-up">Ma liste <span class="highlight-text">de Favoris</span></h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-                <div class="col">
-                    <div class="card bg-secondary text-white text-center hidden">
-                        <img src="assets/platexemple.jpg" class="card-img-top" alt="Image recette">
-                        <div class="card-body">
-                            <h5 class="card-title">Nom recette</h5>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-dark">Détails</button>
-                                <button class="btn btn-dark">Ajouter</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Ajoutez d'autres cartes de la même manière -->
+            <div id="favoris-container" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+                <!-- Les favoris seront chargés ici dynamiquement -->
             </div>
         </div>
     </section>
 
     <script>
-        // Détection du scroll pour animer les recettes au bon moment
+        document.addEventListener("DOMContentLoaded", function () {
+            let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+            let container = document.getElementById("favoris-container");
+
+            if (favoris.length === 0) {
+                container.innerHTML = "<p>Aucun favori enregistré.</p>";
+            } else {
+                favoris.forEach(recette => {
+                    let recetteHTML = `
+                        <div class="col">
+                            <div class="card bg-secondary text-white text-center hidden">
+                                <img src="${recette.img}" class="card-img-top" alt="${recette.nom}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${recette.nom}</h5>
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-dark">Détails</button>
+                                        <button class="btn btn-danger remove-favorite" data-id="${recette.id}">❌ Retirer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += recetteHTML;
+                });
+
+                // Gestion du bouton de suppression
+                document.querySelectorAll(".remove-favorite").forEach(button => {
+                    button.addEventListener("click", function () {
+                        let id = this.getAttribute("data-id");
+                        let nouveauxFavoris = favoris.filter(fav => fav.id !== id);
+                        localStorage.setItem("favoris", JSON.stringify(nouveauxFavoris));
+                        this.closest(".col").remove();
+                        alert("Retiré des favoris !");
+                    });
+                });
+            }
+        });
+
+        // Animation au scroll
         document.addEventListener("DOMContentLoaded", function() {
             let elements = document.querySelectorAll(".hidden");
 

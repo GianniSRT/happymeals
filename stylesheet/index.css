@@ -252,46 +252,9 @@ body {
     color: black;
 }
 
-/* Style du bouton */
-.zoom-button {
-    border: 2px solid #ff8c00;
-    background-color: #ff8c00;
-    color: white;
-    font-weight: bold;
-    padding: 12px 24px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Effet au survol */
-.zoom-button:hover {
-    transform: scale(0.95); /* Réduit le bouton de 5% */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
-}
-
-.zoom-button:focus {
-    outline: none;
-}
-/* Réduire l'espace blanc autour des cartes des recettes */
-#recettes-container .list-group-item {
-    padding: 8px 12px; /* Réduire le padding interne de la carte */
-    margin-bottom: 8px; /* Réduire l'espacement entre les cartes */
-    font-size: 14px; /* Taille du texte */
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
-    transition: transform 0.3s ease;
-}
-
-/* Effet au survol */
-#recettes-container .list-group-item:hover {
-    transform: scale(0.98); /* Réduit la taille de la carte au survol */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
-}
-
-/* Bouton d'ajout au planning plus petit */
-#recettes-container .btn-dark {
-    font-size: 12px;
-    padding: 4px 8px; /* Réduire le padding du bouton */
+.ingredient-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Espacement entre le texte et le bouton */
 }

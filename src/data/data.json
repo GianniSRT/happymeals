@@ -1,6 +1,7 @@
 {
    "recettes":[
       {
+         "id": 1,
          "nom":"Poulet rôti aux herbes",
          "categorie":"Plat principal",
          "img": "/assets/poulet-roti-herbes.jpg",
@@ -32,6 +33,7 @@
          ]
       },
       {
+         "id": 2,
          "nom":"Salade de quinoa aux légumes grillés",
          "categorie":"Entrée",
          "img": "/assets/salade-quinoa.jpg",
@@ -71,6 +73,7 @@
          ]
       },
       {
+         "id": 3,
          "nom":"Tarte aux pommes",
          "categorie":"Dessert",
          "img": "/assets/tarte-aux-pommes.jpg",
@@ -112,6 +115,7 @@
          ]
       },
       {
+         "id": 4,
          "nom":"Soupe de lentilles",
          "categorie":"Entrée",
          "img": "/assets/soupe-lentilles.jpg",
@@ -153,6 +157,7 @@
          ]
       },
       {
+         "id": 5,
          "nom":"Pâtes Carbonara",
          "categorie":"Plat principal",
          "img": "/assets/pates-carbonara.jpg",
@@ -195,6 +200,7 @@
          ]
       },
       {
+         "id": 6,
          "nom":"Risotto aux champignons",
          "categorie":"Plat principal",
          "img": "/assets/risotto-aux-champignons.jpg",
@@ -239,6 +245,7 @@
          ]
       },
       {
+         "id": 7,
          "nom":"Salade de fruits frais",
          "categorie":"Dessert",
          "img": "/assets/salade-fruit.jpg",
@@ -287,6 +294,7 @@
          ]
       },
       {
+         "id": 8,
          "nom":"Ratatouille provençale",
          "categorie":"Plat principal",
          "img": "/assets/ratatouille.jpg",
@@ -329,6 +337,7 @@
          ]
       },
       {
+         "id": 9,
          "nom":"Salade César",
          "categorie":"Entrée",
          "img": "/assets/salade-cesar.jpg",
@@ -369,6 +378,7 @@
          ]
       },
       {
+         "id": 10,
          "nom":"Cheesecake",
          "categorie":"Dessert",
          "img": "/assets/cheesecake.jpg",
@@ -420,6 +430,7 @@
          ]
       },
       {
+         "id": 11,
          "nom":"Muffins aux myrtilles",
          "categorie":"Dessert",
          "img": "/assets/muffin-myrtille.jpg",
@@ -462,6 +473,7 @@
          ]
       },
       {
+         "id": 12,
          "nom":"Lasagnes végétariennes",
          "categorie":"Plat principal",
          "img": "/assets/lasagne-vege.jpg",
@@ -505,6 +517,7 @@
          ]
       },
       {
+         "id": 13,
          "nom":"Salade niçoise",
          "categorie":"Entrée",
          "img": "/assets/salade-niçoise.jpg",
@@ -549,6 +562,7 @@
          ]
       },
       {
+         "id": 14,
          "nom":"Tiramisu",
          "categorie":"Dessert",
          "img": "/assets/tiramisu.jpg",

@@ -1,15 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajax({
         url: 'src/data/data.json',
         type: 'GET',
         dataType: 'json',
         success: (data) => {
             console.log(data);
-            data.recettes.forEach(function(recette) {
+            data.recettes.forEach(function (recette) {
                 let recetteHTML = `
                 <ul class="list-group" id="recipe-list">
                     <li class="list-group-item bg-light text-dark d-flex justify-content-between">
-                    <p>${recette.nom}<p> <button class="btn btn-dark btn-sm" onclick="addToPlanning('Pâtes Bolognaises')">+</button>
+                        <p>${recette.nom}</p> 
+                        <button class="btn btn-dark btn-sm" onclick="addToPlanning('${recette.nom}')">+</button>
                     </li>
                 </ul>
                 `;
@@ -24,12 +25,6 @@ $(document).ready(function() {
     });
 });
 
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     loadPlanning();
 });
@@ -40,12 +35,11 @@ function addToPlanning(recipe) {
 
     if (cell) {
         cell.textContent = recipe;
+        savePlanning();
     } else {
         alert("Jour invalide, essayez : lundi-midi, mardi-soir...");
     }
 }
-
-
 
 function savePlanning() {
     let planning = {};
@@ -58,8 +52,6 @@ function savePlanning() {
 
     localStorage.setItem("planning", JSON.stringify(planning));
     alert("Planning sauvegardé !");
-    
-    // Générer et télécharger le fichier texte
     downloadPlanning(planning);
 }
 
@@ -78,7 +70,7 @@ function loadPlanning() {
 
 function downloadPlanning(planning) {
     let textContent = "📅 Planning de la Semaine 📅\n\n";
-    
+
     const jours = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
 
     jours.forEach(jour => {
