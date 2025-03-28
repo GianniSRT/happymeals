@@ -6,23 +6,19 @@ $(document).ready(function () {
         success: (data) => {
             console.log("Données chargées :", data);
 
-            // Diviser les recettes en pages (9 recettes par page)
             const recettesParPage = 9;
             let recettes = data.recettes;
             let totalPages = Math.ceil(recettes.length / recettesParPage);
 
-            // Fonction pour afficher les recettes sur un onglet donné
             function afficherRecettes(page) {
                 let debut = (page - 1) * recettesParPage;
                 let fin = debut + recettesParPage;
                 let recettesPage = recettes.slice(debut, fin);
                 let containerId = `#recettes-container-${page}`;
 
-                $(containerId).empty(); // Vider le conteneur avant d'ajouter de nouvelles recettes
+                $(containerId).empty();
 
                 recettesPage.forEach(recette => {
-                    console.log(recette);
-                    
                     let recetteHTML = `
                         <div class="col-md-4">
                             <div class="card bg-secondary">
@@ -30,7 +26,7 @@ $(document).ready(function () {
                                 <div class="card-body text-center">
                                     <h2 class="card-title fs-5">${recette.nom}</h2>
                                     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detailsRecette-${recette.id}">Détails</button>
-                                    <button class="favorite-btn">⭐</button>
+                                    <button class="favorite-btn" data-id="${recette.id}" data-nom="${recette.nom}" data-img="${recette.img}">⭐</button>
                                 </div>
                             </div>
                         </div>
@@ -61,9 +57,28 @@ $(document).ready(function () {
                     `;
                     $(containerId).append(recetteHTML);
                 });
+
+                // Ajout au favoris
+                $(".favorite-btn").off("click").on("click", function () {
+                    let id = $(this).data("id");
+                    let nom = $(this).data("nom");
+                    let img = $(this).data("img");
+
+                    let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+
+                    // Vérifier si la recette est déjà en favoris
+                    let existe = favoris.some(recette => recette.id === id);
+
+                    if (!existe) {
+                        favoris.push({ id, nom, img });
+                        localStorage.setItem("favoris", JSON.stringify(favoris));
+                        alert("Ajouté aux favoris !");
+                    } else {
+                        alert("Cette recette est déjà dans vos favoris.");
+                    }
+                });
             }
 
-            // Charger les recettes sur chaque onglet
             for (let i = 1; i <= totalPages; i++) {
                 afficherRecettes(i);
             }
