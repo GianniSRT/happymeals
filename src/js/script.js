@@ -1,4 +1,19 @@
 $(document).ready(function() {
+    // 🔍 Redirection vers la page des recettes lors d'une recherche sur Entrée
+    const searchBar = document.querySelector("#search-bar");
+    if (searchBar) {
+        searchBar.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                const query = searchBar.value.trim();
+                if (query.length > 0) {
+                    window.location.href = `recettes.html?search=${encodeURIComponent(query)}`;
+                }
+            }
+        });
+    }
+
+    // 🔄 Chargement des recettes aléatoires
     $.ajax({
         url: 'src/data/data.json',
         type: 'GET',
