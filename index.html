@@ -22,10 +22,11 @@
                         <li class="nav-item"><a class="nav-link text-dark" href="favoris.html">Favoris</a></li>
                     </ul>
                 </div>
-                <div class="search-bar">
-                    <input type="text" class="form-control" placeholder="Rechercher une recette...">
-                    <i class="fas fa-search"></i>
-                </div>            
+            <!-- Dans la navbar, remplacez la div search-bar existante par : -->
+            <div class="mb-3 position-relative">
+                <input type="text" id="search-bar" class="form-control" placeholder="Rechercher une recette ou un ingrédient...">
+                <ul id="autocomplete-list" class="list-group position-absolute w-100 z-3"></ul>
+            </div>   
             </div>
         </nav>
         
@@ -58,5 +59,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./src/js/script.js"></script>
+
 </body>
 </html>

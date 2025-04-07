@@ -258,3 +258,34 @@ body {
     align-items: center;
     gap: 10px; /* Espacement entre le texte et le bouton */
 }
+
+
+.autocomplete-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #343a40;
+    border: 1px solid #495057;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.autocomplete-item:hover {
+    background-color: #495057;
+}
+
+.autocomplete-item .highlight {
+    color: #ffc107;
+    font-weight: bold;
+}
