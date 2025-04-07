@@ -128,3 +128,22 @@ $(document).ready(function () {
     });
   });
   
+
+  $(document).on("click", ".favorite-btn", function () {
+    const recetteId = $(this).data("id");
+    const recetteNom = $(this).data("nom");
+    const recetteImg = $(this).data("img");
+  
+    // Récupérer les favoris existants du localStorage
+    let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+  
+    // Ajouter la recette aux favoris
+    favoris.push({ id: recetteId, nom: recetteNom, img: recetteImg });
+    alert(`Recette ajoutée aux favoris : ${recetteNom}`);
+
+    // Sauvegarder de nouveau dans le localStorage
+    localStorage.setItem("favoris", JSON.stringify(favoris));
+  
+    console.log(`Recette ajoutée aux favoris: ${recetteNom}`);
+  });
+  

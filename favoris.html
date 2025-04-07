@@ -32,73 +32,121 @@
         </nav>
 
         <!-- Contenu principal de la page Favoris -->
-        <div class="container text-center mt-5">
-            <h2 class="fade-in-up">Ma liste <span class="highlight-text">de Favoris</span></h2>
-            <div id="favoris-container" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
-                <!-- Les favoris seront chargés ici dynamiquement -->
-            </div>
-        </div>
+<div class="container text-center mt-5">
+    <h2 class="fade-in-up">Ma liste <span class="highlight-text">de Favoris</span></h2>
+    <button id="clear-favoris" class="btn btn-danger mt-3">Vider tous les favoris</button> <!-- Bouton pour vider les favoris -->
+    <div id="favoris-container" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+        <!-- Les favoris seront chargés ici dynamiquement -->
+    </div>
+</div>
+
+        
     </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
-            let container = document.getElementById("favoris-container");
-
-            if (favoris.length === 0) {
-                container.innerHTML = "<p>Aucun favori enregistré.</p>";
-            } else {
-                favoris.forEach(recette => {
-                    let recetteHTML = `
-                        <div class="col">
-                            <div class="card bg-secondary text-white text-center hidden">
-                                <img src="${recette.img}" class="card-img-top" alt="${recette.nom}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${recette.nom}</h5>
-                                    <div class="d-flex justify-content-between">
-                                        <button class="btn btn-dark">Détails</button>
-                                        <button class="btn btn-danger remove-favorite" data-id="${recette.id}">❌ Retirer</button>
-                                    </div>
-                                </div>
+document.addEventListener("DOMContentLoaded", function () {
+    // Charger les favoris depuis le localStorage
+    let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+    let container = document.getElementById("favoris-container");
+    
+    // Afficher les favoris dans le container
+    if (favoris.length === 0) {
+        container.innerHTML = "<p>Aucun favori enregistré.</p>";
+    } else {
+        favoris.forEach(recette => {
+            let recetteHTML = `
+                <div class="col">
+                    <div class="card bg-secondary text-white text-center hidden">
+                        <img src="${recette.img}" class="card-img-top" alt="${recette.nom}">
+                        <div class="card-body">
+                            <h5 class="card-title">${recette.nom}</h5>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-dark">Détails</button>
+                                <button class="btn btn-danger remove-favorite" data-id="${recette.id}">❌ Retirer</button>
                             </div>
                         </div>
-                    `;
-                    container.innerHTML += recetteHTML;
-                });
+                    </div>
+                </div>
+            `;
+            container.innerHTML += recetteHTML;
+        });
+    
+        // Gestion du bouton de suppression (Retirer des favoris)
+        document.querySelectorAll(".remove-favorite").forEach(button => {
+            button.addEventListener("click", function () {
+                let id = this.getAttribute("data-id");
+    
+                // Filtrer les favoris pour retirer l'élément
+                favoris = favoris.filter(fav => fav.id !== id);
+    
+                // Sauvegarder la nouvelle liste de favoris dans le localStorage
+                localStorage.setItem("favoris", JSON.stringify(favoris));
+    
+                // Retirer l'élément du DOM
+                this.closest(".col").remove();
+    
+                alert("Retiré des favoris !");
+            });
+        });
+    }
 
-                // Gestion du bouton de suppression
-                document.querySelectorAll(".remove-favorite").forEach(button => {
-                    button.addEventListener("click", function () {
-                        let id = this.getAttribute("data-id");
-                        let nouveauxFavoris = favoris.filter(fav => fav.id !== id);
-                        localStorage.setItem("favoris", JSON.stringify(nouveauxFavoris));
-                        this.closest(".col").remove();
-                        alert("Retiré des favoris !");
-                    });
-                });
+    // Fonction pour vider tous les favoris
+    document.getElementById("clear-favoris").addEventListener("click", function () {
+        // Supprimer tous les favoris du localStorage
+        localStorage.removeItem("favoris");
+
+        // Vider le container des favoris
+        container.innerHTML = "<p>Aucun favori enregistré.</p>";
+
+        alert("Tous les favoris ont été supprimés !");
+    });
+
+    // Animation au scroll pour les éléments cachés
+    let elements = document.querySelectorAll(".hidden");
+    
+    function checkScroll() {
+        let triggerBottom = window.innerHeight * 0.85;
+    
+        elements.forEach(el => {
+            let rect = el.getBoundingClientRect();
+            if (rect.top < triggerBottom) {
+                el.classList.add("visible");
             }
         });
+    }
+    
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Vérifier au chargement
+    
+    // Fonction pour ajouter aux favoris (éviter les doublons)
+    $(document).on("click", ".favorite-btn", function () {
+        const recetteId = $(this).data("id");
+        const recetteNom = $(this).data("nom");
+        const recetteImg = $(this).data("img");
 
-        // Animation au scroll
-        document.addEventListener("DOMContentLoaded", function() {
-            let elements = document.querySelectorAll(".hidden");
+        // Récupérer les favoris existants du localStorage
+        let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
 
-            function checkScroll() {
-                let triggerBottom = window.innerHeight * 0.85;
-                
-                elements.forEach(el => {
-                    let rect = el.getBoundingClientRect();
-                    if (rect.top < triggerBottom) {
-                        el.classList.add("visible");
-                    }
-                });
-            }
+        // Vérifier si la recette est déjà dans les favoris
+        const existant = favoris.some(fav => fav.id === recetteId);
 
-            window.addEventListener("scroll", checkScroll);
-            checkScroll(); // Vérifie au chargement
-        });
+        if (!existant) {
+            // Ajouter la recette aux favoris
+            favoris.push({ id: recetteId, nom: recetteNom, img: recetteImg });
+
+            // Sauvegarder les favoris dans le localStorage
+            localStorage.setItem("favoris", JSON.stringify(favoris));
+
+            // Afficher une notification ou une confirmation
+            alert(`Recette ajoutée aux favoris : ${recetteNom}`);
+        } else {
+            alert("Cette recette est déjà dans vos favoris !");
+        }
+    });
+});
+
     </script>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

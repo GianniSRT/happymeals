@@ -1,24 +1,41 @@
-// js/liste_courses.js
-
 let ingredients = new Set(JSON.parse(localStorage.getItem("listeCourses")) || []);
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("Page chargée");
+
+    // Afficher les ingrédients existants au chargement
     afficherIngredients();
 
     const btnAjouter = document.getElementById("btn-ajouter");
     const input = document.getElementById("ingredientInput");
 
+    // Vérification de la présence des éléments
+    console.log("btn-ajouter:", btnAjouter);
+    console.log("ingredientInput:", input);
+
+    // Si btnAjouter ou input sont null, il y a un problème avec l'HTML
+    if (!btnAjouter || !input) {
+        console.error("Les éléments HTML ne sont pas trouvés.");
+        return;
+    }
+
+    // Gestion du clic sur le bouton d'ajout
     btnAjouter.addEventListener("click", () => {
         const ingredient = input.value.trim();
+        console.log("Valeur de l'input:", ingredient);  // Vérifier si l'input contient une valeur
+
         if (ingredient) {
             if (ingredients.has(ingredient)) {
                 alert("Cet ingrédient est déjà dans la liste !");
             } else {
                 ingredients.add(ingredient);
+                console.log("Ingrédient ajouté:", ingredient);
                 enregistrerEtAfficher();
-                input.value = "";
+                input.value = ""; // Effacer l'input après ajout
                 alert(`${ingredient} a été ajouté à votre liste !`);
             }
+        } else {
+            alert("Veuillez entrer un ingrédient.");
         }
     });
 
@@ -29,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function afficherIngredients() {
     const list = document.getElementById("ingredientList");
     list.innerHTML = "";
-    
+
     if (ingredients.size === 0) {
         list.innerHTML = '<li class="list-group-item bg-dark text-white border-light">Aucun ingrédient pour le moment</li>';
         return;
@@ -49,13 +66,15 @@ function afficherIngredients() {
 }
 
 function supprimerIngredient(ingredient) {
+    console.log("Suppression de l'ingrédient:", ingredient);
     ingredients.delete(ingredient);
     enregistrerEtAfficher();
 }
 
 function enregistrerEtAfficher() {
+    // Enregistrement des ingrédients dans le localStorage
     localStorage.setItem("listeCourses", JSON.stringify(Array.from(ingredients)));
-    afficherIngredients();
+    afficherIngredients();  // Afficher à chaque ajout ou suppression
 }
 
 function exporterListe() {
@@ -67,7 +86,7 @@ function exporterListe() {
     const contenu = Array.from(ingredients).join("\n");
     const blob = new Blob([contenu], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
-    
+
     const a = document.createElement("a");
     a.href = url;
     a.download = "liste_courses.txt";
@@ -88,12 +107,12 @@ function supprimerListe() {
 // Fonction pour ajouter depuis d'autres pages
 function ajouterIngredientALaListe(ingredient) {
     if (!ingredient) return;
-    
+
     if (ingredients.has(ingredient)) {
         console.log("Ingrédient déjà présent");
         return;
     }
-    
+
     ingredients.add(ingredient);
     enregistrerEtAfficher();
 }
