@@ -40,13 +40,16 @@ $(document).ready(function () {
                                     </div>
                                     <div class="modal-body">
                                         <h2 class="fs-6 text-dark">Liste d'ingrédients</h2>
-                                            <ul class="fs-6 text-dark">${recette.ingredients.map(ingredient => `
-                                                <li class="ingredient-item"><span>${ingredient.nom}</span><button type="button" class="btn btn-primary">+</button>
-                                                </li>`).join('')}
+                                            <ul class="fs-6 text-dark">
+                                                ${recette.ingredients.map(ingredient => `
+                                                    <li class="ingredient-item d-flex justify-content-between align-items-center">
+                                                        <span>${ingredient.nom}</span>
+                                                        <button type="button" class="btn btn-primary btn-ajout-course" data-ingredient="${ingredient.nom}">+</button>
+                                                    </li>
+                                                `).join('')}
                                             </ul>
-
                                         <h3 class="fs-6 text-dark">${recette.etapes}</h3>
-                                        <p class="fs-6 text-dark">Durée :${recette.temps_preparation}</p>
+                                        <p class="fs-6 text-dark">Durée : ${recette.temps_preparation}</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
@@ -58,7 +61,7 @@ $(document).ready(function () {
                     $(containerId).append(recetteHTML);
                 });
 
-                // Ajout au favoris
+                // Gestion des favoris
                 $(".favorite-btn").off("click").on("click", function () {
                     let id = $(this).data("id");
                     let nom = $(this).data("nom");
@@ -66,7 +69,6 @@ $(document).ready(function () {
 
                     let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
 
-                    // Vérifier si la recette est déjà en favoris
                     let existe = favoris.some(recette => recette.id === id);
 
                     if (!existe) {
@@ -75,6 +77,20 @@ $(document).ready(function () {
                         alert("Ajouté aux favoris !");
                     } else {
                         alert("Cette recette est déjà dans vos favoris.");
+                    }
+                });
+
+                // Gestion du bouton "+" pour ajouter un ingrédient dans localStorage
+                $(".btn-ajout-course").off("click").on("click", function () {
+                    let ingredient = $(this).data("ingredient");
+                    let listeCourses = JSON.parse(localStorage.getItem("courses")) || [];
+
+                    if (!listeCourses.includes(ingredient)) {
+                        listeCourses.push(ingredient);
+                        localStorage.setItem("courses", JSON.stringify(listeCourses));
+                        alert(`Ingrédient ajouté : ${ingredient}`);
+                    } else {
+                        alert("Ingrédient déjà présent dans la liste.");
                     }
                 });
             }
