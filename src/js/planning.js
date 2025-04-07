@@ -82,7 +82,7 @@ function downloadPlanning(planning) {
     let blob = new Blob([textContent], { type: "text/plain" });
     let link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "planning.txt";
+    link.download = "planning.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

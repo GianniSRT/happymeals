@@ -32,52 +32,14 @@
         <h2>Ma liste de <span class="highlight-text">Courses</span></h2>
         <div class="input-group my-3">
             <input type="text" id="ingredientInput" class="form-control" placeholder="Ajouter un ingrédient">
-            <button class="btn btn-orange" onclick="ajouterIngredient()">AJOUTER</button>
+            <button id="btn-ajouter" class="btn btn-orange">AJOUTER</button>
         </div>
         <ul id="ingredientList" class="list-group"></ul>
-        <button class="btn btn-orange mt-3" onclick="exporterListe()">EXPORTER</button>
-        <button class="btn btn-secondary mt-3" onclick="supprimerListe()">SUPPRIMER</button>
+        <button id="btn-exporter" class="btn btn-orange mt-3">EXPORTER</button>
+        <button id="btn-supprimer" class="btn btn-secondary mt-3">SUPPRIMER</button>
     </div>
 
-    <script>
-        let ingredients = new Set();
-        function ajouterIngredient() {
-            let input = document.getElementById("ingredientInput");
-            let ingredient = input.value.trim();
-            if (ingredient && !ingredients.has(ingredient)) {
-                ingredients.add(ingredient);
-                afficherIngredients();
-                input.value = "";
-            }
-        }
-        function afficherIngredients() {
-            let list = document.getElementById("ingredientList");
-            list.innerHTML = "";
-            ingredients.forEach(ingredient => {
-                let li = document.createElement("li");
-                li.className = "list-group-item d-flex justify-content-between align-items-center bg-dark text-white border-light fade-in";
-                li.innerHTML = `${ingredient} <button class='btn btn-danger btn-sm' onclick='supprimerIngredient("${ingredient}")'>X</button>`;
-                list.appendChild(li);
-            });
-        }
-        function supprimerIngredient(ingredient) {
-            ingredients.delete(ingredient);
-            afficherIngredients();
-        }
-        function exporterListe() {
-            let contenu = Array.from(ingredients).join("\n");
-            let blob = new Blob([contenu], { type: "text/plain" });
-            let a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "liste_courses.txt";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-        function supprimerListe() {
-            ingredients.clear();
-            afficherIngredients();
-        }
-    </script>
+    <!-- JS externe pour la logique -->
+    <script src="js/liste_courses.js"></script>
 </body>
 </html>
