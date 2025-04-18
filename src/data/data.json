@@ -4,7 +4,7 @@
          "id": 1,
          "nom":"Poulet rôti aux herbes",
          "categorie":"Plat principal",
-         "img": "/assets/poulet-roti-herbes.jpg",
+         "img": "./assets/poulet-roti-herbes.jpg",
          "tags": ["viande", "rapide", "classique"],
          "temps_preparation":"1 heure",
          "ingredients":[
@@ -37,7 +37,7 @@
          "id": 2,
          "nom":"Salade de quinoa aux légumes grillés",
          "categorie":"Entrée",
-         "img": "/assets/salade-quinoa.jpg",
+         "img": "./assets/salade-quinoa.jpg",
          "tags": ["végétarien", "salade", "été"],
          "temps_preparation":"30 minutes",
          "ingredients":[
@@ -78,7 +78,7 @@
          "id": 3,
          "nom":"Tarte aux pommes",
          "categorie":"Dessert",
-         "img": "/assets/tarte-aux-pommes.jpg",
+         "img": "./assets/tarte-aux-pommes.jpg",
          "tags": ["dessert", "rapide", "classique"],
          "temps_preparation":"1 heure",
          "ingredients":[
@@ -121,7 +121,7 @@
          "id": 4,
          "nom":"Soupe de lentilles",
          "categorie":"Entrée",
-         "img": "/assets/soupe-lentilles.jpg",
+         "img": "./assets/soupe-lentilles.jpg",
          "tags": ["soupe", "rapide", "classique"],
          "temps_preparation":"1 heure",
          "ingredients":[
@@ -164,7 +164,7 @@
          "id": 5,
          "nom":"Pâtes Carbonara",
          "categorie":"Plat principal",
-         "img": "/assets/pates-carbonara.jpg",
+         "img": "./assets/pates-carbonara.jpg",
          "tags": ["italien", "rapide", "classique"],
          "temps_preparation":"20 minutes",
          "ingredients":[
@@ -208,7 +208,7 @@
          "id": 6,
          "nom":"Risotto aux champignons",
          "categorie":"Plat principal",
-         "img": "/assets/risotto-aux-champignons.jpg",
+         "img": "./assets/risotto-aux-champignons.jpg",
          "tags": ["italien", "rapide", "classique"],
          "temps_preparation":"40 minutes",
          "ingredients":[
@@ -254,7 +254,7 @@
          "id": 7,
          "nom":"Salade de fruits frais",
          "categorie":"Dessert",
-         "img": "/assets/salade-fruit.jpg",
+         "img": "./assets/salade-fruit.jpg",
          "tags": ["dessert", "rapide", "classique"],
          "temps_preparation":"20 minutes",
          "ingredients":[
@@ -304,7 +304,7 @@
          "id": 8,
          "nom":"Ratatouille provençale",
          "categorie":"Plat principal",
-         "img": "/assets/ratatouille.jpg",
+         "img": "./assets/ratatouille.jpg",
          "tags": ["légumes", "rapide", "classique"],
          "temps_preparation":"1 heure",
          "ingredients":[
@@ -348,7 +348,7 @@
          "id": 9,
          "nom":"Salade César",
          "categorie":"Entrée",
-         "img": "/assets/salade-cesar.jpg",
+         "img": "./assets/salade-cesar.jpg",
          "tags": ["italien", "salade", "classique"],
          "temps_preparation":"20 minutes",
          "ingredients":[
@@ -390,7 +390,7 @@
          "id": 10,
          "nom":"Cheesecake",
          "categorie":"Dessert",
-         "img": "/assets/cheesecake.jpg",
+         "img": "./assets/cheesecake.jpg",
          "tags": ["dessert", "fromage", "classique"],
          "temps_preparation":"20 minutes (+ 4h de repos)",
          "ingredients":[
@@ -443,7 +443,7 @@
          "id": 11,
          "nom":"Muffins aux myrtilles",
          "categorie":"Dessert",
-         "img": "/assets/muffin-myrtille.jpg",
+         "img": "./assets/muffin-myrtille.jpg",
          "tags": ["patisserie", "fruit", "classique"],
          "temps_preparation":"30 minutes",
          "ingredients":[
@@ -487,7 +487,7 @@
          "id": 12,
          "nom":"Lasagnes végétariennes",
          "categorie":"Plat principal",
-         "img": "/assets/lasagne-vege.jpg",
+         "img": "./assets/lasagne-vege.jpg",
          "tags": ["italien", "rapide", "classique"],
          "temps_preparation":"1 heure 30 minutes",
          "ingredients":[
@@ -533,7 +533,7 @@
          "nom":"Salade niçoise",
          "categorie":"Entrée",
          "tags": ["salade", "rapide", "classique"],
-         "img": "/assets/salade-niçoise.jpg",
+         "img": "./assets/salade-niçoise.jpg",
          "temps_preparation":"20 minutes",
          "ingredients":[
             {
@@ -578,7 +578,7 @@
          "id": 14,
          "nom":"Tiramisu",
          "categorie":"Dessert",
-         "img": "/assets/tiramisu.jpg",
+         "img": "./assets/tiramisu.jpg",
          "temps_preparation":"30 minutes (+ temps de repos)",
          "tags": ["italien", "rapide", "classique"],
          "ingredients":[
